@@ -1,6 +1,6 @@
 import type { User, Course, Submission, StringOrNumber } from "../types/index";
+import "./sample";
 
-// ===== PRIMITIVE TYPE ANNOTATIONS =====
 const projectName: string  = "itelect4-project";
 const currentYear: number  = 2026;
 const isFullStack: boolean = true;
@@ -17,13 +17,11 @@ function logMessage(message: string): void {
 
 logMessage(greet(projectName, currentYear));
 
-// ===== SPECIAL TYPES =====
 let userInput: unknown = "test";
 if (typeof userInput === "string") {
   console.log(userInput.toUpperCase()); 
 }
 
-// ===== USING INTERFACES =====
 const student: User = {
   id:       1,
   name:     "Juan dela Cruz",
@@ -42,7 +40,6 @@ const course: Course = {
 console.log(student);
 console.log(course);
 
-// ===== TYPE NARROWING =====
 function processInput(input: StringOrNumber): string {
   if (typeof input === "string") {
     return input.toUpperCase();  

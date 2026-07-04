@@ -1,4 +1,3 @@
-// ===== INTERFACES =====
 export interface User {
   id:       number;
   name:     string;
@@ -20,9 +19,8 @@ export interface Submission {
   courseCode:  string;
   repoUrl:     string;
   submittedAt: Date;
-  score?:      number;  // Optional field
+  score?:      number;  
 }
 
-// ===== TYPE ALIASES & UNIONS =====
 export type StringOrNumber = string | number;
 export type Status         = "pending" | "active" | "inactive";

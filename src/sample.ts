@@ -7,8 +7,8 @@ interface GradedStudent extends User {
 function getUser(id: number): GradedStudent {
   return {
     id: id,
-    name: "Juan dela Cruz",
-    email: "juan@example.com",
+    name: "Aaron Arnold Edenson Naval",
+    email: "aaron_arnold_edenson_naval@dlsl.edu.ph",
     role: "student",
     isActive: true,
     score: 95.5,
