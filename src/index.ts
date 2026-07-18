@@ -1,58 +1,56 @@
-import type { User, Course, Submission, StringOrNumber } from "../types/index";
-import "./sample";
+import { 
+  User, 
+  Course, 
+  ApiResponse, 
+  UserUpdate, 
+  UserPreview, 
+  SubmissionStatus 
+} from "../types/index";
 
-const projectName: string  = "itelect4-project";
-const currentYear: number  = 2026;
-const isFullStack: boolean = true;
-const nothing:     null    = null;
-const notSet:      undefined = undefined;
+// ==========================================
+// 1. GENERIC FUNCTIONS[cite: 1]
+// ==========================================
 
-function greet(name: string, year: number): string {
-  return `Welcome to ${name} -- AY ${year}!`;
+// Generic function 1: Get first item of any array[cite: 1]
+function getFirst<T>(items: T[]): T | undefined {
+  return items[0];
 }
 
-function logMessage(message: string): void {
-  console.log(message);
+// Generic function 2: Get item by ID constraint[cite: 1]
+function getById<T extends { id: number }>(items: T[], id: number): T | undefined {
+  return items.find((item) => item.id === id);
 }
 
-logMessage(greet(projectName, currentYear));
-
-let userInput: unknown = "test";
-if (typeof userInput === "string") {
-  console.log(userInput.toUpperCase()); 
-}
-
-const student: User = {
-  id:       1,
-  name:     "Juan dela Cruz",
-  email:    "juan@example.com",
-  role:     "student",
+// Mock Data for Testing
+const sampleUser: User = {
+  id: 1,
+  name: "Juan dela Cruz",
+  email: "juan@example.com",
+  role: "student",
   isActive: true,
 };
 
-const course: Course = {
-  code:     "ITELECT4",
-  title:    "IT Elective 4",
-  units:    3,
-  semester: "1st Semester 2026-2027",
+// ==========================================
+// 2. RUNNING AND LOGGING VALUES
+// ==========================================
+
+// Testing Generic Functions[cite: 1]
+const firstUser = getFirst<User>([sampleUser]);
+const foundUser = getById<User>([sampleUser], 1);
+console.log("Generic Function Output:", firstUser?.name);
+
+// Testing Generic Interface[cite: 1]
+const userResponse: ApiResponse<User> = {
+  success: true,
+  data: sampleUser,
 };
+console.log("Generic Interface Response:", userResponse.data.email);
 
-console.log(student);
-console.log(course);
+// Testing Utility Types[cite: 1]
+const updatedProfile: UserUpdate = { name: "Juan D. Cruz" };
+const previewProfile: UserPreview = { id: 1, name: "Juan dela Cruz", role: "student" };
+console.log("Utility Type Pick Role:", previewProfile.role);
 
-function processInput(input: StringOrNumber): string {
-  if (typeof input === "string") {
-    return input.toUpperCase();  
-  }
-  return input.toFixed(2);       
-}
-
-function formatDate(value: string | Date): string {
-  if (value instanceof Date) {
-    return value.toLocaleDateString(); 
-  }
-  return value;                         
-}
-
-console.log(processInput("hello"));
-console.log(formatDate(new Date()));
+// Testing Enums[cite: 1]
+let currentStatus: SubmissionStatus = SubmissionStatus.Pending;
+console.log("Enum Runtime Name Mapping:", SubmissionStatus[currentStatus]); // Outputs: "Pending"[cite: 1]
