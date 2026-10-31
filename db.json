@@ -1,0 +1,33 @@
+{
+  "submissions": [
+    {
+      "driverName": "Max Verstappen",
+      "carModel": "Porsche 911 GT3 R",
+      "bestLapTime": "02:05.664",
+      "createdAt": "2026-09-04T16:57:26.390Z",
+      "id": "7gYJ8ilgFY4"
+    },
+    {
+      "driverName": "Lewis Hamilton",
+      "carModel": "Mercedes-AMG GT3",
+      "bestLapTime": "02:12.225",
+      "createdAt": "2026-09-04T16:57:48.982Z",
+      "id": "ej5qVkQDh5o"
+    },
+    {
+      "driverName": "Aaron Naval",
+      "carModel": "BMW M4 GT3",
+      "bestLapTime": "03:10.201",
+      "createdAt": "2026-09-04T17:02:41.146Z",
+      "id": "iP6z2ivuReI"
+    },
+    {
+      "driverName": "Fernando Alonzo",
+      "carModel": "Ferrari 296 GT3",
+      "bestLapTime": "02:04.306",
+      "createdAt": "2026-09-04T17:03:18.715Z",
+      "id": "hz8JBFS7_t8"
+    }
+  ],
+  "$schema": "./node_modules/json-server/schema.json"
+}

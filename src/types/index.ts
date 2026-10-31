@@ -1,5 +1,5 @@
 export interface User {
-  id: number;
+  id: string;
   name: string;
   email: string;
   role: string;
@@ -14,10 +14,26 @@ export interface Course {
 }
 
 export interface Submission {
-  id: number;
-  studentId: number;
-  courseCode: string;
+  id: string;
+  studentId: string;
   repoUrl: string;
-  submittedAt: Date;
-  score?: number;
+  createdAt: string;
+}
+
+export interface TimingLap {
+  id: string;
+  driverName: string;
+  carModel: string;
+  bestLapTime: string;
+  recordedBy: string;
+  createdAt: string;
+}
+
+export type AiReviewReadiness = 'ready' | 'needs-work' | 'not-ready';
+
+export interface AiReview {
+  summary: string;
+  strengths: string[];
+  improvements: string[];
+  readiness: AiReviewReadiness;
 }
