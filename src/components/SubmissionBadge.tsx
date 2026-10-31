@@ -12,7 +12,7 @@ const SubmissionBadge: React.FC<SubmissionBadgeProps> = ({
   return (
     <div className="submission-badge">
       <p>Repo: {submission.repoUrl}</p>
-      <p>Score: {submission.score ?? "Not graded yet"}</p>
+      <p>Submitted: {new Date(submission.createdAt).toLocaleDateString()}</p>
       {children}
     </div>
   );
